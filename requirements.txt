@@ -9,3 +9,4 @@ notebook
 ipykernel
 joblib
 tqdm
+streamlit
