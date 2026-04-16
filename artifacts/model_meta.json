@@ -1,0 +1,26 @@
+{
+  "model_name": "final_linear_svm",
+  "model_type": "LinearSVC",
+  "dataset": "ViHSD",
+  "text_column": "free_text",
+  "label_column": "label_id",
+  "label_map": {
+    "0": "CLEAN",
+    "1": "OFFENSIVE",
+    "2": "HATE"
+  },
+  "preprocessing": "strong",
+  "feature_type": "char_wb_3_5",
+  "vectorizer_analyzer": "char_wb",
+  "ngram_range": [3, 5],
+  "min_df": 3,
+  "max_df": 1.0,
+  "class_weight": "balanced",
+  "C": 1.0,
+  "dev_accuracy": 0.8507,
+  "dev_macro_f1": 0.6354,
+  "dev_weighted_f1": 0.8516,
+  "test_accuracy": 0.8575,
+  "test_macro_f1": 0.6315,
+  "test_weighted_f1": 0.8573
+}
