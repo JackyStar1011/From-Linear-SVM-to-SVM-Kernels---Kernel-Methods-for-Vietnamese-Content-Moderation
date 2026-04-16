@@ -1,4 +1,5 @@
 import re
+import unicodedata
 
 URL_RE = re.compile(r"https?://\S+|www\.\S+")
 MULTISPACE_RE = re.compile(r"\s+")
@@ -28,10 +29,18 @@ def preprocess_strong(text: str) -> str:
     return text
 
 
+def preprocess_kernel_default(text: str) -> str:
+    text = str(text)
+    text = unicodedata.normalize("NFC", text)
+    text = MULTISPACE_RE.sub(" ", text).strip()
+    return text
+
+
 PREPROCESSORS = {
     "light": preprocess_light,
     "medium": preprocess_medium,
     "strong": preprocess_strong,
+    "kernel_default": preprocess_kernel_default,
 }
 
 
